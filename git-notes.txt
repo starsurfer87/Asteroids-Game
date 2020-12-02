@@ -1,0 +1,34 @@
+   13  pwd
+   14  mkdir -P  Dev/Byng
+   15  mkdir -p Dev/Byng
+   16  cd Dev/Byng
+   17  pwd
+   18  https://github.com/starsurfer87/Asteroids-Game.git
+   19  git clone https://github.com/starsurfer87/Asteroids-Game.git
+   20  git status
+   21  ls
+   22  cd Asteroids-Game/
+   23  git status
+   24  mkdir src
+   25  cd src
+   26  pwd
+   27  ls 
+   28  git add *
+   29  git status
+   30  git commit
+   31  git push
+   32  git checkout https://github.com/starsurfer87/Asteroids-Game.git
+   33  git checkout /Asteroids-Game
+   34  git checkout Asteroids-Game
+   35  git checkout basic-functions
+   36  git pull
+   37  git commit
+   38  pwd
+   39  git add *
+   40  git status
+   41  git commit
+   42  git push
+   43  pwd
+   44  cd ..
+   45  history
+   46  history > git-notes.txt
