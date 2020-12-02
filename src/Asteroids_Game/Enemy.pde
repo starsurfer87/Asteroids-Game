@@ -14,6 +14,7 @@ class Enemy extends GameObject {
     size = 50;
     lives = 1;
     shotTimer = 0;
+    threshold = 70;
   }
   
   void act() {
@@ -34,7 +35,8 @@ class Enemy extends GameObject {
     }
     
     if (shotTimer > threshold) {
-      
+      myObjects.add(new Bullet(false, loc, dir));
+      shotTimer = 0;
     }
     
     if (offScreen()) lives = 0;

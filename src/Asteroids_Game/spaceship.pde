@@ -10,9 +10,9 @@ class Spaceship extends GameObject{
     dir = new PVector(0.1, 0);
     vel = new PVector(0, 0);
     size = 50;
-    lives = 3;
+    lives = 5;
     shotTimer = 0;
-    threshold = 60;
+    threshold = 50;
   }
   
   // 3. Behaviour Functions
@@ -31,6 +31,7 @@ class Spaceship extends GameObject{
   void act() {
     super.act();
     
+    if (lives <= 0) 
     shotTimer++;
     
     if (akey) dir.rotate(-radians(5));
@@ -43,16 +44,18 @@ class Spaceship extends GameObject{
     }
     if (skey) vel.sub(dir);
     if (spacekey && shotTimer > threshold) {
-      myObjects.add(new Bullet(true));
+      myObjects.add(new Bullet(true, loc, dir));
       shotTimer = 0;
     }
     
     int i = 0;
     while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
-      if (obj instanceof Bullet) {
-        if (dist(loc.x, loc.y, obj.loc.x, obj.loc.y) <= size/2 + obj.size && ((Bullet) obj).friendly == false) {
+      if (dist(loc.x, loc.y, obj.loc.x, obj.loc.y) <= size/2 + obj.size/2) {
+        if (obj instanceof Bullet && ((Bullet) obj).friendly == false) {
           obj.lives = 0;
+          lives --;
+        } else if (obj instanceof Asteroid) {
           lives --;
         }
       }

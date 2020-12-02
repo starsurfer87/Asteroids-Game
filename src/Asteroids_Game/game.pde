@@ -6,12 +6,10 @@ void game() {
   
   myShip.show();
   myShip.act();
-  if (enemyTimer > 1000) {
+  if (enemyTimer > enemyThreshold) {
     myObjects.add(new Enemy());
     enemyTimer = 0;
   }
-  
-  println(myObjects.size());
   
   int i = 0; //starting at object 0
   while (i < myObjects.size()) {

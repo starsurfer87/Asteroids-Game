@@ -1,3 +1,13 @@
+/* 
+TO DO:
+- aim enemy bullets
+- fix enemy spawn 
+- fix ateroid particles (also add random speed once fixed)
+- 
+- restart
+- visuals
+*/
+
 int mode;
 final int INTRO = 0;
 final int GAME = 1;
@@ -10,6 +20,7 @@ ArrayList<GameObject> myObjects;
 
 boolean wkey, skey, akey, dkey, spacekey;
 int enemyTimer;
+int enemyThreshold;
 
 void setup() {
   //pic1 = loadImage("filename.png");
@@ -20,9 +31,13 @@ void setup() {
   myShip = new Spaceship();
   wkey = skey = akey = dkey = spacekey = false;
   enemyTimer = 0;
+  enemyThreshold = 100;
   myObjects = new ArrayList<GameObject>();
   for (int n = 0; n < 3; n++) {
     myObjects.add(new Asteroid());
+  }
+  for (int n = 0; n < 20; n++) {
+    myObjects.add(new Particle(new PVector(400, 200)));
   }
 }
 
