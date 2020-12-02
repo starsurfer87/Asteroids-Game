@@ -4,7 +4,7 @@ class Particle extends GameObject {
   
   Particle(PVector startLoc) {
     loc = startLoc;
-    vel = new PVector(3, 0);
+    vel = new PVector(random(1, 3), 0);
     vel.rotate(radians(random(360)));
     size = 5;
     lives = 1;
@@ -16,7 +16,7 @@ class Particle extends GameObject {
     stroke(255, t);
     fill(255, t);
     rect(loc.x, loc.y, size, size);
-    t -= 1;
+    t -= 3;
   }
   
   void act() {

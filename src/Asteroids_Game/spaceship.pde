@@ -31,7 +31,7 @@ class Spaceship extends GameObject{
   void act() {
     super.act();
     
-    if (lives <= 0) 
+    //if (lives <= 0) mode = GAMEOVER; 
     shotTimer++;
     
     if (akey) dir.rotate(-radians(5));

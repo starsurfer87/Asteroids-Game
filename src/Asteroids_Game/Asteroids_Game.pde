@@ -1,10 +1,9 @@
 /* 
 TO DO:
-- aim enemy bullets
 - fix enemy spawn 
 - fix ateroid particles (also add random speed once fixed)
-- 
 - restart
+- make it so you don't die instantly
 - visuals
 */
 
@@ -31,7 +30,7 @@ void setup() {
   myShip = new Spaceship();
   wkey = skey = akey = dkey = spacekey = false;
   enemyTimer = 0;
-  enemyThreshold = 100;
+  enemyThreshold = 500;
   myObjects = new ArrayList<GameObject>();
   for (int n = 0; n < 3; n++) {
     myObjects.add(new Asteroid());

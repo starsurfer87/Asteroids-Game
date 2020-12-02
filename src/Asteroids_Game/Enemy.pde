@@ -8,19 +8,33 @@ class Enemy extends GameObject {
     loc = new PVector(0, random(height));
     float rn = random(0, 1);
     if (rn < 0.5) loc.x = width;
-    vel = new PVector(4, 0);
-    vel.rotate(random(-80, 80));
-    dir = new PVector(1, 0);
+    vel = new PVector(width/2 - loc.x, height/2 - loc.y);
+    vel.setMag(3);
+    vel.rotate(random(-10, 10));
+    dir = new PVector(myShip.loc.x - loc.x, myShip.loc.y - loc.y);
     size = 50;
     lives = 1;
     shotTimer = 0;
     threshold = 70;
   }
   
+  void show() {
+    pushMatrix();
+    strokeWeight(3);
+    stroke(255, 0, 0);
+    fill(100);
+    translate(loc.x, loc.y);
+    rotate(dir.heading());
+    rect(0, 0, size, size);
+    line(0, 0, 50, 0);
+    popMatrix();
+  }
+  
   void act() {
     super.act();
     
     shotTimer++;
+    dir = new PVector(myShip.loc.x - loc.x, myShip.loc.y - loc.y);
     
     int i = 0;
     while (i < myObjects.size()) {
