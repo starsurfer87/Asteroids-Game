@@ -2,9 +2,10 @@
 TO DO:
 - fix enemy spawn 
 - fix ateroid particles (also add random speed once fixed)
-- restart
-- make it so you don't die instantly
 - visuals
+
+EXTRAS:
+- difficulty levels
 */
 
 int mode;
@@ -18,13 +19,15 @@ Spaceship myShip;
 ArrayList<GameObject> myObjects;
 
 boolean wkey, skey, akey, dkey, spacekey;
+boolean victory;
 int enemyTimer;
 int enemyThreshold;
 
 void setup() {
   //pic1 = loadImage("filename.png");
   size(800, 800);
-  mode = GAME;
+  mode = INTRO;
+  victory = false;
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
   myShip = new Spaceship();

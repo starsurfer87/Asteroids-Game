@@ -2,7 +2,8 @@ class Spaceship extends GameObject{
   
   // 1. Instance Variables (or Fields)
   PVector dir; //direction
-  int shotTimer, threshold; 
+  int shotTimer, threshold;
+  int collisionTimer;
   
   // 2. Constructor: name must match the class
   Spaceship() {
@@ -20,7 +21,11 @@ class Spaceship extends GameObject{
     pushMatrix();
     strokeWeight(3);
     stroke(255);
-    fill(100);
+    if (collisionTimer > 0) {
+      fill(255);
+    } else {
+      fill(100);
+    }
     translate(loc.x, loc.y);
     rotate(dir.heading());
     rect(0, 0, size, size);
@@ -31,8 +36,9 @@ class Spaceship extends GameObject{
   void act() {
     super.act();
     
-    //if (lives <= 0) mode = GAMEOVER; 
+    if (lives <= 0) mode = GAMEOVER; 
     shotTimer++;
+    collisionTimer--;
     
     if (akey) dir.rotate(-radians(5));
     if (dkey) dir.rotate(radians(5));
@@ -55,8 +61,9 @@ class Spaceship extends GameObject{
         if (obj instanceof Bullet && ((Bullet) obj).friendly == false) {
           obj.lives = 0;
           lives --;
-        } else if (obj instanceof Asteroid) {
+        } else if (obj instanceof Asteroid && collisionTimer <= 0) {
           lives --;
+          collisionTimer = 30;
         }
       }
       i++;

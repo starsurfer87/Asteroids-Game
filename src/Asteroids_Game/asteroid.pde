@@ -27,7 +27,7 @@ class Asteroid extends GameObject {
     while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
       if (obj instanceof Bullet) {
-        if (dist(loc.x, loc.y, obj.loc.x, obj.loc.y) <= size/2 + obj.size && ((Bullet) obj).friendly == true) {
+        if (dist(loc.x, loc.y, obj.loc.x, obj.loc.y) <= size/2 + obj.size) {
           obj.lives = 0;
           for (int n = 0; n < 20; n++) {
             myObjects.add(new Particle(loc));
