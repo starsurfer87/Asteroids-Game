@@ -1,32 +1,22 @@
-class Bullet {
+class Bullet extends GameObject {
   
-  // 1. Instace Variables
-  PVector loc, vel;
-  int lives;
-  int size;
+  boolean friendly;
   
   // 2. Constructor
-  Bullet() {
-    loc = new PVector(myShip.loc.x, myShip.loc.y);
-    vel = new PVector(myShip.dir.x, myShip.dir.y);
-    vel.setMag(5);
+  Bullet(boolean f, PVector startLoc, PVector startDir) {
+    loc = new PVector(startLoc.x, startLoc.y);
+    vel = new PVector(startDir.x, startDir.y);
+    vel.setMag(8);
     lives = 1;
     size = 10;
-  }
-  
-  // 3. Behaviour Fuctions
-  void show() {
-    strokeWeight(1);
-    stroke(255);
-    fill(200);
-    rect(loc.x, loc.y, size, size);
+    friendly = f;
   }
   
   void act() {
-    loc.add(vel);
-    if (loc.x > width || loc.x < 0 || loc.y > height || loc.y < 0) {
+    super.act();
+    if (offScreen()) {
       lives = 0;
     }
-
   }
+  
 }
