@@ -12,18 +12,24 @@ void game() {
   }
   
   int i = 0; //starting at object 0
+  int asteroidCount = 0;
   while (i < myObjects.size()) {
     //processing each object individually
     GameObject obj = myObjects.get(i); //gets current bullet
     if (obj.lives > 0) {
-    obj.show(); //tells current object to draw itself
-    obj.act(); //tells current object to update itself
-    i++; //going to the next object
+      obj.show(); //tells current object to draw itself
+      obj.act(); //tells current object to update itself
+      if (obj instanceof Asteroid) asteroidCount++; 
+      i++; //going to the next object
     } else {
       myObjects.remove(i); //throw away object
     }
   }
   enemyTimer++;
+  if (asteroidCount == 0) {
+    victory = true;
+    mode = GAMEOVER;
+  }
 }
 
 void gameClicks() {

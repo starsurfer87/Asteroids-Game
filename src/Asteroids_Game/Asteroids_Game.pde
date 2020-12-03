@@ -3,9 +3,6 @@ TO DO:
 - fix enemy spawn 
 - fix ateroid particles (also add random speed once fixed)
 - visuals
-
-EXTRAS:
-- difficulty levels
 */
 
 int mode;
@@ -33,11 +30,7 @@ void setup() {
   myShip = new Spaceship();
   wkey = skey = akey = dkey = spacekey = false;
   enemyTimer = 0;
-  enemyThreshold = 500;
   myObjects = new ArrayList<GameObject>();
-  for (int n = 0; n < 3; n++) {
-    myObjects.add(new Asteroid());
-  }
   for (int n = 0; n < 20; n++) {
     myObjects.add(new Particle(new PVector(400, 200)));
   }
