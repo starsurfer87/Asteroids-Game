@@ -1,7 +1,6 @@
 /* 
 TO DO:
-- fix enemy spawn 
-- fix ateroid particles (also add random speed once fixed)
+- health meter
 - visuals
 */
 
@@ -10,7 +9,6 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
-//PImage pic1;
 
 Spaceship myShip;
 ArrayList<GameObject> myObjects;
@@ -20,20 +18,33 @@ boolean victory;
 int enemyTimer;
 int enemyThreshold;
 
+PImage outerspace;
+PImage heart;
+ArrayList<PImage> gif;
+int f;
+int inc;
+
+PFont gameFont;
+
 void setup() {
-  //pic1 = loadImage("filename.png");
   size(800, 800);
-  mode = INTRO;
-  victory = false;
   rectMode(CENTER);
   textAlign(CENTER, CENTER);
-  myShip = new Spaceship();
-  wkey = skey = akey = dkey = spacekey = false;
-  enemyTimer = 0;
-  myObjects = new ArrayList<GameObject>();
-  for (int n = 0; n < 20; n++) {
-    myObjects.add(new Particle(new PVector(400, 200)));
+  gameSetup();
+  
+  gif = new ArrayList<PImage>();
+  String gifDir = "asteroids-gif";
+  File dataDir = new File(sketchPath() + "/data/" + gifDir); 
+  File[] files = dataDir.listFiles();
+  for (File file : files) { 
+    PImage frame = loadImage(gifDir + "/" + file.getName());
+    gif.add(frame);
   }
+  outerspace = loadImage("stars-background2.jpg");
+  heart = loadImage("health-heart.png");
+  
+  gameFont = loadFont("PlayMeGamesReguler-150.vlw");
+  textFont(gameFont);
 }
 
 void draw() {
@@ -48,5 +59,4 @@ void draw() {
   } else {
     println("ERROR! Mode = " + mode);
   }
-  //image(pic1, x, y, w, h);
 }

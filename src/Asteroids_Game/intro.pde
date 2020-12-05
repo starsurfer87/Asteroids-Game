@@ -1,12 +1,22 @@
 void intro() {
-  background(0, 255, 0);
-  button(200, 200, 170, 80, "EASY", 40);
-  button(400, 200, 170, 80, "MEDIUM", 40);
-  button(600, 200, 170, 80, "HARD", 40);
+  image(gif.get(f), 0, 0, 1440, 800);
+  f += inc;
+  if (f == gif.size() - 1 || f == 0) inc *= -1;
+  
+  fill(#A74FC4);
+  textSize(150);
+  text("ASTEROIDS", width/2, 310);
+  fill(#B6E35B);
+  textSize(145);
+  text("ASTEROIDS", width/2, 300);
+  
+  button(200, 600, 170, 80, "EASY", 40);
+  button(400, 600, 170, 80, "MEDIUM", 40);
+  button(600, 600, 170, 80, "HARD", 40);
 }
 
 void introClicks() {
-  if (touchingMouse(200, 200, 170, 80)) { //easy
+  if (touchingMouse(200, 600, 170, 80)) { //easy
     mode = GAME;
     for (int n = 0; n < 1; n++) {
       myObjects.add(new Asteroid());
@@ -14,7 +24,7 @@ void introClicks() {
     enemyThreshold = 1500;
   }
   
-  if (touchingMouse(400, 200, 170, 80)) { //medium
+  if (touchingMouse(400, 600, 170, 80)) { //medium
     mode = GAME;
     for (int n = 0; n < 2; n++) {
       myObjects.add(new Asteroid());
@@ -22,7 +32,7 @@ void introClicks() {
     enemyThreshold = 1000;
   }
   
-  if (touchingMouse(600, 200, 170, 80)) { //hard
+  if (touchingMouse(600, 600, 170, 80)) { //hard
     mode = GAME;
     for (int n = 0; n < 3; n++) {
       myObjects.add(new Asteroid());

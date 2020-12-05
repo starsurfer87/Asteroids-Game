@@ -20,7 +20,7 @@ void setup() {
 
 void draw() {
   //image(testImage, 0, 0, 400, 400);
-  image(gif.get(f), 0, 0, width, height);
+  image(gif.get(f), 0, 0, 1440, 800);
   f += inc;
   if (f == gif.size() - 1 || f == 0) inc *= -1;
 }

@@ -63,7 +63,7 @@ class Spaceship extends GameObject{
           lives --;
         } else if (obj instanceof Asteroid && collisionTimer <= 0) {
           lives --;
-          collisionTimer = 30;
+          collisionTimer = 35;
         }
       }
       i++;

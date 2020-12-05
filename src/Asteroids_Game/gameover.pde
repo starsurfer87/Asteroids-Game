@@ -13,6 +13,6 @@ void gameover() {
 void gameoverClicks() {
   if (touchingMouse(400, 600, 300, 100)) { //play again
     mode = INTRO;
-    setup();
+    gameSetup();
   }
 }
