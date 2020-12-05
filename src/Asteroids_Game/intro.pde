@@ -18,15 +18,15 @@ void introClicks() {
     mode = GAME;
     for (int n = 0; n < 2; n++) {
       myObjects.add(new Asteroid());
-      enemyThreshold = 1000;
     }
+    enemyThreshold = 1000;
   }
   
   if (touchingMouse(600, 200, 170, 80)) { //hard
     mode = GAME;
     for (int n = 0; n < 3; n++) {
       myObjects.add(new Asteroid());
-      enemyThreshold = 500;
     }
+    enemyThreshold = 500;
   }
 }

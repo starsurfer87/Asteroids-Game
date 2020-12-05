@@ -10,7 +10,7 @@ class Enemy extends GameObject {
     if (rn < 0.5) loc.x = width;
     vel = new PVector(width/2 - loc.x, height/2 - loc.y);
     vel.setMag(3);
-    vel.rotate(random(-10, 10));
+    vel.rotate(radians(random(-10, 10)));
     dir = new PVector(myShip.loc.x - loc.x, myShip.loc.y - loc.y);
     size = 50;
     lives = 1;

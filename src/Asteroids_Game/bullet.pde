@@ -4,8 +4,8 @@ class Bullet extends GameObject {
   
   // 2. Constructor
   Bullet(boolean f, PVector startLoc, PVector startDir) {
-    loc = new PVector(startLoc.x, startLoc.y);
-    vel = new PVector(startDir.x, startDir.y);
+    loc = startLoc.copy();
+    vel = startDir.copy();
     vel.setMag(8);
     lives = 1;
     size = 10;
