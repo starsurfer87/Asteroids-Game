@@ -9,6 +9,7 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int INSTRUCTIONS = 4;
 
 Spaceship myShip;
 ArrayList<GameObject> myObjects;
@@ -56,6 +57,8 @@ void draw() {
     pause();
   } else if (mode == GAMEOVER) {
     gameover();
+  } else if (mode == INSTRUCTIONS) {
+    instructions();
   } else {
     println("ERROR! Mode = " + mode);
   }

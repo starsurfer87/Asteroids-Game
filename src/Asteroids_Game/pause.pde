@@ -1,7 +1,7 @@
 
 void pause() {
   image(outerspace, 0, 0, 1920, 1080); //for "stars-background.jpg"
-    fill(#A74FC4);
+  fill(#A74FC4);
   textSize(150);
   text("PAUSED", width/2, 210);
   fill(#B6E35B);

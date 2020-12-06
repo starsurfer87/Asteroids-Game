@@ -13,7 +13,7 @@ class Spaceship extends GameObject{
     size = 50;
     lives = 5;
     shotTimer = 0;
-    threshold = 50;
+    threshold = 30;
   }
   
   // 3. Behaviour Functions
@@ -28,8 +28,13 @@ class Spaceship extends GameObject{
     }
     translate(loc.x, loc.y);
     rotate(dir.heading());
-    rect(0, 0, size, size);
-    line(0, 0, 50, 0);
+    beginShape();
+    vertex(0.75*size, 0);
+    vertex(-size/2, -size/2);
+    vertex(-size/4, 0);
+    vertex(-size/2, size/2);
+    vertex(0.75*size, 0);
+    endShape();
     popMatrix();
   }
   

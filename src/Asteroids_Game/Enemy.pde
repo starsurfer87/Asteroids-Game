@@ -26,7 +26,7 @@ class Enemy extends GameObject {
     translate(loc.x, loc.y);
     rotate(dir.heading());
     rect(0, 0, size, size);
-    line(0, 0, 50, 0);
+    line(0, 0, 45, 0);
     popMatrix();
   }
   

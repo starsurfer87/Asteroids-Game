@@ -5,6 +5,13 @@ void game() {
   
   button(80, 750, 130, 60, "PAUSE", 35);
   
+  //health bar
+  int offset = 50;
+  for (int life = 0; life < myShip.lives; life++) {
+  image(heart, width - offset, 20, 40, 40);
+  offset += 50;
+  }
+  
   myShip.show();
   myShip.act();
   if (enemyTimer > enemyThreshold) {
@@ -32,12 +39,6 @@ void game() {
     mode = GAMEOVER;
   }
   
-  //health bar
-  int offset = 50;
-  for (int life = 0; life < myShip.lives; life++) {
-  image(heart, width - offset, 20, 40, 40);
-  offset += 50;
-  }
 }
 
 void gameClicks() {
