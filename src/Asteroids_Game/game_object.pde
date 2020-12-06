@@ -4,6 +4,7 @@ class GameObject {
   PVector vel;
   int lives;
   int size;
+  int colour;
   
   GameObject() {
     
@@ -12,7 +13,7 @@ class GameObject {
   void show() {
     strokeWeight(1);
     stroke(255);
-    fill(50);
+    fill(colour);
     rect(loc.x, loc.y, size, size);
   }
   

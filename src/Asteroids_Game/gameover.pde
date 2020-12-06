@@ -1,10 +1,18 @@
 void gameover() {
-  background(255, 0, 0);
+  image(outerspace, 0, 0, 1920, 1080); //for "stars-background.jpg"
   
   if (victory) {
-    text("VICTORY!", width/2, height/2);
+    textSize(150);
+    text("VICTORY!", width/2, 310);
+    fill(#B6E35B);
+    textSize(145);
+    text("VICTORY!", width/2, 300);
   } else {
-    text("YOU LOST", width/2, height/2);
+    textSize(150);
+    text("YOU LOST", width/2, 310);
+    fill(#B6E35B);
+    textSize(145);
+    text("YOU LOST", width/2, 300);
   }
   
   button(400, 600, 300, 100, "PLAY AGAIN");
@@ -13,6 +21,6 @@ void gameover() {
 void gameoverClicks() {
   if (touchingMouse(400, 600, 300, 100)) { //play again
     mode = INTRO;
-    setup();
+    gameSetup();
   }
 }

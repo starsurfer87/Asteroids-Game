@@ -13,23 +13,28 @@ class Spaceship extends GameObject{
     size = 50;
     lives = 5;
     shotTimer = 0;
-    threshold = 50;
+    threshold = 30;
   }
   
   // 3. Behaviour Functions
   void show() {
     pushMatrix();
     strokeWeight(3);
-    stroke(255);
+    stroke(#B6E35B);
     if (collisionTimer > 0) {
-      fill(255);
+      fill(#B6E35B);
     } else {
-      fill(100);
+      fill(#587818);
     }
     translate(loc.x, loc.y);
     rotate(dir.heading());
-    rect(0, 0, size, size);
-    line(0, 0, 50, 0);
+    beginShape();
+    vertex(0.75*size, 0);
+    vertex(-size/2, -size/2);
+    vertex(-size/4, 0);
+    vertex(-size/2, size/2);
+    vertex(0.75*size, 0);
+    endShape();
     popMatrix();
   }
   
@@ -63,7 +68,7 @@ class Spaceship extends GameObject{
           lives --;
         } else if (obj instanceof Asteroid && collisionTimer <= 0) {
           lives --;
-          collisionTimer = 30;
+          collisionTimer = 45;
         }
       }
       i++;
