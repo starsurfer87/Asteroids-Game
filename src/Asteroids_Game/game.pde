@@ -41,7 +41,7 @@ void game() {
 }
 
 void gameClicks() {
-  if (touchingMouse(400, 700, 130, 60)) { //pause
+  if (touchingMouse(80, 750, 130, 60)) { //pause
     mode = PAUSE;
   }
 }

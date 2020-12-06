@@ -12,7 +12,7 @@ class Enemy extends GameObject {
     vel.setMag(3);
     vel.rotate(radians(random(-10, 10)));
     dir = new PVector(myShip.loc.x - loc.x, myShip.loc.y - loc.y);
-    size = 50;
+    size = 40;
     lives = 1;
     shotTimer = 0;
     threshold = 70;
@@ -21,8 +21,8 @@ class Enemy extends GameObject {
   void show() {
     pushMatrix();
     strokeWeight(3);
-    stroke(255, 0, 0);
-    fill(100);
+    stroke(#DF80FF);
+    fill(#632478);
     translate(loc.x, loc.y);
     rotate(dir.heading());
     rect(0, 0, size, size);

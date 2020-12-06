@@ -6,6 +6,7 @@ class Asteroid extends GameObject {
     vel.rotate(radians(random(360)));
     size = 80;
     lives = 1;
+    colour = 100;
   }
   
   Asteroid(int s, float x, float y) {
@@ -14,6 +15,7 @@ class Asteroid extends GameObject {
     vel.rotate(radians(random(360)));
     size = s;
     lives = 1;
+    colour = 100;
   }
   
   void act(){

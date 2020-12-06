@@ -40,7 +40,7 @@ void setup() {
     PImage frame = loadImage(gifDir + "/" + file.getName());
     gif.add(frame);
   }
-  outerspace = loadImage("stars-background2.jpg");
+  outerspace = loadImage("stars-background.jpg");
   heart = loadImage("health-heart.png");
   
   gameFont = loadFont("PlayMeGamesReguler-150.vlw");

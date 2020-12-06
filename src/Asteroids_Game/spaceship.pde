@@ -20,11 +20,11 @@ class Spaceship extends GameObject{
   void show() {
     pushMatrix();
     strokeWeight(3);
-    stroke(255);
+    stroke(#B6E35B);
     if (collisionTimer > 0) {
-      fill(255);
+      fill(#B6E35B);
     } else {
-      fill(100);
+      fill(#587818);
     }
     translate(loc.x, loc.y);
     rotate(dir.heading());
@@ -63,7 +63,7 @@ class Spaceship extends GameObject{
           lives --;
         } else if (obj instanceof Asteroid && collisionTimer <= 0) {
           lives --;
-          collisionTimer = 35;
+          collisionTimer = 45;
         }
       }
       i++;

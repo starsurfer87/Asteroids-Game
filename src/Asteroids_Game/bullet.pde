@@ -10,6 +10,11 @@ class Bullet extends GameObject {
     lives = 1;
     size = 10;
     friendly = f;
+    if (friendly) {
+      colour = #B6E35B;
+    } else {
+      colour = #DF80FF;
+    }
   }
   
   void act() {

@@ -14,7 +14,7 @@ class Particle extends GameObject {
   void show() {
     strokeWeight(1);
     stroke(255, t);
-    fill(255, t);
+    fill(100, t);
     rect(loc.x, loc.y, size, size);
     t -= 3;
   }
